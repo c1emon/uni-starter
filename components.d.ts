@@ -9,11 +9,10 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    TheCounter: typeof import('./components/TheCounter.vue')['default']
-    TheFooter: typeof import('./components/TheFooter.vue')['default']
-    TheInput: typeof import('./components/TheInput.vue')['default']
-    TheLogo: typeof import('./components/TheLogo.vue')['default']
+    TheCounter: typeof import('./src/components/TheCounter.vue')['default']
+    TheFooter: typeof import('./src/components/TheFooter.vue')['default']
+    TheInput: typeof import('./src/components/TheInput.vue')['default']
+    TheLogo: typeof import('./src/components/TheLogo.vue')['default']
     WdButton: typeof import('wot-design-uni/components/wd-button/wd-button.vue')['default']
-    WdIcon: typeof import('wot-design-uni/components/wd-icon/wd-icon.vue')['default']
   }
 }

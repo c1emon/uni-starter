@@ -14,13 +14,13 @@ const name = ref('')
     />
 
     <div>
-      <button
+      <wd-button
         m-3 text-sm btn
         :disabled="!name"
         @click="router.push(`/pages/hi?name=${name}`)"
       >
         Go
-      </button>
+      </wd-button>
     </div>
   </div>
 </template>

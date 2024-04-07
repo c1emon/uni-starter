@@ -5,10 +5,14 @@ import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
+
+// import Components from 'unplugin-vue-components/vite'
 import UniPages from '@uni-helper/vite-plugin-uni-pages'
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import VueDevTools from 'vite-plugin-vue-devtools'
+
+import UniComponents from '@uni-helper/vite-plugin-uni-components'
+import { WotResolver } from '@uni-helper/vite-plugin-uni-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -62,8 +66,17 @@ export default defineConfig({
      * 注意：需注册至 uni 之前，否则不会生效
      * @see https://github.com/antfu/vite-plugin-components
      */
-    Components({
+    // Components({
+    //   dts: 'src/components.d.ts',
+    // }),
+
+    /**
+     * vite-plugin-uni-components
+     * @see https://github.com/uni-helper/vite-plugin-uni-components
+     */
+    UniComponents({
       dts: 'src/components.d.ts',
+      resolvers: [WotResolver()],
     }),
 
     /**
