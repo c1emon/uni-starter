@@ -13,7 +13,15 @@ declare module '@vue/runtime-core' {
     TheFooter: typeof import('./components/TheFooter.vue')['default']
     TheInput: typeof import('./components/TheInput.vue')['default']
     TheLogo: typeof import('./components/TheLogo.vue')['default']
-    WdButton: typeof import('wot-design-uni/components/wd-button/wd-button.vue')['default']
+    WdBadge: typeof import('wot-design-uni/components/wd-badge/wd-badge.vue')['default']
+    WdDivider: typeof import('wot-design-uni/components/wd-divider/wd-divider.vue')['default']
+    WdGrid: typeof import('wot-design-uni/components/wd-grid/wd-grid.vue')['default']
+    WdGridItem: typeof import('wot-design-uni/components/wd-grid-item/wd-grid-item.vue')['default']
     WdIcon: typeof import('wot-design-uni/components/wd-icon/wd-icon.vue')['default']
+    WdLoading: typeof import('wot-design-uni/components/wd-loading/wd-loading.vue')['default']
+    WdLoadmore: typeof import('wot-design-uni/components/wd-loadmore/wd-loadmore.vue')['default']
+    WdNavbar: typeof import('wot-design-uni/components/wd-navbar/wd-navbar.vue')['default']
+    WdSwiper: typeof import('wot-design-uni/components/wd-swiper/wd-swiper.vue')['default']
+    WdSwiperNav: typeof import('wot-design-uni/components/wd-swiper-nav/wd-swiper-nav.vue')['default']
   }
 }

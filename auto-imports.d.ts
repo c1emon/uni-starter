@@ -64,8 +64,11 @@ declare global {
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
+  const refreshTheme: typeof import('./src/composables/useDark')['refreshTheme']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const router: typeof import('./src/composables/useRouter')['router']
+  const setDark: typeof import('./src/composables/useDark')['setDark']
+  const setLight: typeof import('./src/composables/useDark')['setLight']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -79,6 +82,7 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useDark: typeof import('./src/composables/useDark')['useDark']
   const useRouter: typeof import('./src/composables/useRouter')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
   const watch: typeof import('vue')['watch']
@@ -156,8 +160,11 @@ declare module 'vue' {
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
+    readonly refreshTheme: UnwrapRef<typeof import('./src/composables/useDark')['refreshTheme']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly router: UnwrapRef<typeof import('./src/composables/useRouter')['router']>
+    readonly setDark: UnwrapRef<typeof import('./src/composables/useDark')['setDark']>
+    readonly setLight: UnwrapRef<typeof import('./src/composables/useDark')['setLight']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -171,6 +178,7 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useDark: UnwrapRef<typeof import('./src/composables/useDark')['useDark']>
     readonly useRouter: UnwrapRef<typeof import('./src/composables/useRouter')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
@@ -241,8 +249,11 @@ declare module '@vue/runtime-core' {
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
+    readonly refreshTheme: UnwrapRef<typeof import('./src/composables/useDark')['refreshTheme']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly router: UnwrapRef<typeof import('./src/composables/useRouter')['router']>
+    readonly setDark: UnwrapRef<typeof import('./src/composables/useDark')['setDark']>
+    readonly setLight: UnwrapRef<typeof import('./src/composables/useDark')['setLight']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -256,6 +267,7 @@ declare module '@vue/runtime-core' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useDark: UnwrapRef<typeof import('./src/composables/useDark')['useDark']>
     readonly useRouter: UnwrapRef<typeof import('./src/composables/useRouter')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>

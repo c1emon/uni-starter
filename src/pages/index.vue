@@ -1,30 +1,77 @@
+<!-- eslint-disable no-console -->
 <script setup lang="ts">
-const name = ref('')
+const message = inject('message')
+const swiperList = ref([
+  'https://unpkg.com/wot-design-uni-assets/redpanda.jpg',
+  'https://unpkg.com/wot-design-uni-assets/capybara.jpg',
+  'https://unpkg.com/wot-design-uni-assets/panda.jpg',
+  'https://img.yzcdn.cn/vant/cat.jpeg',
+  'https://unpkg.com/wot-design-uni-assets/meng.jpg',
+])
+
+const state = ref<string>('loading')
+const num = ref<number>(0)
+const max = ref<number>(60)
+
+function handleClick(e: any) {
+  console.log(e)
+}
+function onChange(e: any) {
+  console.log(e)
+}
+function click() {
+  console.log(`key=${JSON.stringify(message)}`)
+}
+function loadmore() {
+  setTimeout(() => {
+    num.value = num.value + 15
+    state.value = 'loading'
+  }, 200)
+}
+
+onReachBottom(() => {
+  if (num.value === 45)
+    state.value = 'error'
+  else if (num.value < max.value)
+    loadmore()
+  else if (num.value === max.value)
+    state.value = 'finished'
+})
+
+onLoad(() => {
+  loadmore()
+})
 </script>
 
 <template>
+  <div pb-4 :theme="isDark ? 'dark' : 'light'">
+    <wd-swiper :list="swiperList" autoplay :current="0" @click="handleClick" @change="onChange" />
+  </div>
   <div>
-    <TheLogo />
-
-    <div py-4 />
-
-    <TheInput
-      v-model:value="name"
-      placeholder="What's your name?"
-    />
-
-    <div>
-      <wd-button
-        m-3 text-sm btn
-        :disabled="!name"
-        @click="router.push(`/pages/hi?name=${name}`)"
-      >
-        Go
-      </wd-button>
+    <wd-grid :column="3" bg-color="rgba(0, 0, 0, 0.02)" :theme="isDark ? 'dark' : 'light'" clickable>
+      <wd-grid-item icon="picture" text="文字0" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字1" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字2" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字3" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字4" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字5" @itemclick="click" />
+    </wd-grid>
+  </div>
+  <div class="container">
+    <div v-for="index in num" :key="index" class="list-item">
+      <image src="https://img10.360buyimg.com/jmadvertisement/jfs/t1/70325/36/14954/36690/5dcd3e3bEee5006e0/aed1ccf6d5ffc764.png" />
+      <div class="right">
+        这是一条测试{{ index + 1 }}
+      </div>
     </div>
+    <wd-loadmore :state="state" @reload="loadmore" />
   </div>
 </template>
 
 <route lang="yaml">
 layout: home
+# style:
+#   disableScroll: true
+#   app-plus:
+#     bounce: "none"
 </route>
