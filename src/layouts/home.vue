@@ -2,8 +2,6 @@
 <script setup>
 // const statusBarHeight = `${uni.getSystemInfoSync().statusBarHeight}px`
 // console.log(`height=${statusBarHeight}`)
-const count = ref(0)
-provide('key', count)
 </script>
 
 <template>

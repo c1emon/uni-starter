@@ -9,7 +9,7 @@
       font-sans text="center"
       color="gray-700 dark:gray-200"
     >
-      <slot param="sslloott" />
+      <slot />
     </main>
   </div>
 </template>
