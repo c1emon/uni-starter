@@ -7,6 +7,7 @@ interface NavigateToOptions {
   url: "/pages/index" |
        "/pages/check" |
        "/pages/hi" |
+       "/pages/map" |
        "/pages/mine" |
        "/pages/webview" |
        "/pages-sub/index";

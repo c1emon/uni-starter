@@ -1,6 +1,7 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
-const message = inject('message')
+import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
+
 const swiperList = ref([
   'https://unpkg.com/wot-design-uni-assets/redpanda.jpg',
   'https://unpkg.com/wot-design-uni-assets/capybara.jpg',
@@ -9,7 +10,7 @@ const swiperList = ref([
   'https://unpkg.com/wot-design-uni-assets/meng.jpg',
 ])
 
-const state = ref<string>('loading')
+const state = ref<LoadMoreState>('loading')
 const num = ref<number>(0)
 const max = ref<number>(60)
 
@@ -19,8 +20,8 @@ function handleClick(e: any) {
 function onChange(e: any) {
   console.log(e)
 }
-function click() {
-  console.log(`key=${JSON.stringify(message)}`)
+function click(t: string) {
+  router.push(`/pages/${t}`)
 }
 function loadmore() {
   setTimeout(() => {
@@ -49,7 +50,7 @@ onLoad(() => {
   </div>
   <div>
     <wd-grid :column="3" bg-color="rgba(0, 0, 0, 0.02)" :theme="isDark ? 'dark' : 'light'" clickable>
-      <wd-grid-item icon="picture" text="文字0" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字0" @itemclick="() => click('map')" />
       <wd-grid-item icon="picture" text="文字1" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字2" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字3" @itemclick="click" />

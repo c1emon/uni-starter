@@ -10,6 +10,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import UniPages from '@uni-helper/vite-plugin-uni-pages'
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
 import VueDevTools from 'vite-plugin-vue-devtools'
+import UniManifest from '@uni-helper/vite-plugin-uni-manifest'
 
 import UniComponents from '@uni-helper/vite-plugin-uni-components'
 import { WotResolver } from '@uni-helper/vite-plugin-uni-components/resolvers'
@@ -86,6 +87,7 @@ export default defineConfig({
     VueDevTools(),
 
     uni(),
+    UniManifest(),
   ],
 
   /**
