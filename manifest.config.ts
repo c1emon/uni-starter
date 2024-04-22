@@ -1,7 +1,7 @@
 import { defineManifestConfig } from '@uni-helper/vite-plugin-uni-manifest'
 
 export default defineManifestConfig({
-  'name': 'uni-vitesse1',
+  'name': 'uni-vitesse',
   'appid': '',
   'description': 'uniapp + vitesse = strong !!!',
   'versionName': '1.0.0',
@@ -10,6 +10,7 @@ export default defineManifestConfig({
   'uniStatistics': {
     enable: false,
   },
+
   /* 5+App特有相关 */
   'app-plus': {
     usingComponents: true,
@@ -52,6 +53,14 @@ export default defineManifestConfig({
     },
   },
   'h5': {
+    sdkConfigs: {
+      // 使用地图或位置相关功能必须填写其一
+      maps: {
+        qqmap: {
+          key: 'api-key',
+        },
+      },
+    },
   },
   /* 快应用特有相关 */
   'quickapp': {},
@@ -59,9 +68,18 @@ export default defineManifestConfig({
   'mp-weixin': {
     appid: '',
     setting: {
+      es6: true,
+      minified: true,
       urlCheck: false,
     },
     usingComponents: true,
+    // qq map sdk
+    permission: {
+      'scope.userLocation': {
+        desc: '请求获取您的位置',
+      },
+    },
+    requiredPrivateInfos: ['getLocation', 'chooseLocation'],
   },
   'mp-alipay': {
     usingComponents: true,
