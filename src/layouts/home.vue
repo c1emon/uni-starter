@@ -11,7 +11,7 @@
     }"
   >
     <div>
-      <wd-navbar custom-style="background-color: #E5E7EB;" :bordered="false" placeholder :fixed="true" safe-area-inset-top title="工作台" />
+      <wd-navbar id="navbar" custom-style="background-color: #E5E7EB;" :bordered="false" placeholder :fixed="true" safe-area-inset-top title="工作台" />
     </div>
 
     <main
