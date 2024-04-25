@@ -18,6 +18,7 @@ function handleClickLeft() {
         safe-area-inset-top left-text="返回" left-arrow title="工作台" @click-left="handleClickLeft"
       />
     </div>
+    <wd-notify />
     <main font-sans text="center" color="gray-700 dark:gray-200">
       <slot />
     </main>

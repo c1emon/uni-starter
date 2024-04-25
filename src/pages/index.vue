@@ -1,6 +1,9 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
+import { useNotify } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
+
+const { showNotify } = useNotify()
 
 const swiperList = ref([
   'https://unpkg.com/wot-design-uni-assets/redpanda.jpg',
@@ -21,7 +24,16 @@ function onChange(e: any) {
   console.log(e)
 }
 function click(t: string) {
-  router.push(`/pages/${t}`)
+  if (t === 'n') {
+    console.log('showNotify')
+    showNotify({
+      message: '通知内容',
+      safeHeight: 41,
+    })
+  }
+  else if (t === 'map') {
+    router.push(`/pages/${t}`)
+  }
 }
 function loadmore() {
   setTimeout(() => {
@@ -51,7 +63,7 @@ onLoad(() => {
   <div>
     <wd-grid :column="3" bg-color="rgba(0, 0, 0, 0.02)" :theme="isDark ? 'dark' : 'light'" clickable>
       <wd-grid-item icon="picture" text="文字0" @itemclick="() => click('map')" />
-      <wd-grid-item icon="picture" text="文字1" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字1" @itemclick="() => click('n')" />
       <wd-grid-item icon="picture" text="文字2" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字3" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字4" @itemclick="click" />

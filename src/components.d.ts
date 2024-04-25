@@ -21,7 +21,11 @@ declare module '@vue/runtime-core' {
     WdLoading: typeof import('wot-design-uni/components/wd-loading/wd-loading.vue')['default']
     WdLoadmore: typeof import('wot-design-uni/components/wd-loadmore/wd-loadmore.vue')['default']
     WdNavbar: typeof import('wot-design-uni/components/wd-navbar/wd-navbar.vue')['default']
+    WdNotify: typeof import('wot-design-uni/components/wd-notify/wd-notify.vue')['default']
+    WdOverlay: typeof import('wot-design-uni/components/wd-overlay/wd-overlay.vue')['default']
+    WdPopup: typeof import('wot-design-uni/components/wd-popup/wd-popup.vue')['default']
     WdSwiper: typeof import('wot-design-uni/components/wd-swiper/wd-swiper.vue')['default']
     WdSwiperNav: typeof import('wot-design-uni/components/wd-swiper-nav/wd-swiper-nav.vue')['default']
+    WdTransition: typeof import('wot-design-uni/components/wd-transition/wd-transition.vue')['default']
   }
 }

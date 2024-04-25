@@ -59,6 +59,7 @@ export default defineConfig({
       dirs: [
         './src/composables',
       ],
+      resolvers: [WotResolver()],
       vueTemplate: true,
     }),
 

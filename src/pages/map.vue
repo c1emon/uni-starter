@@ -9,12 +9,6 @@ const h = ref(`${boxHeight}px`)
 
 const latitude = 39.909
 const longitude = 116.39742
-
-// onLoad(() => {
-//   uni.setBackgroundColor({
-//     backgroundColor: '#f2f0f0',
-//   })
-// })
 </script>
 
 <template>
