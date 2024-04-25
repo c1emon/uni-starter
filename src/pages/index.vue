@@ -1,7 +1,9 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
-import { useNotify } from 'wot-design-uni'
+import { useNotify, useToast } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
+
+const toast = useToast()
 
 const { showNotify } = useNotify()
 
@@ -25,7 +27,8 @@ function onChange(e: any) {
 }
 function click(t: string) {
   if (t === 'n') {
-    console.log('showNotify')
+    console.log('show toast')
+    toast.show('提示信息')
     showNotify({
       message: '通知内容',
       safeHeight: 41,

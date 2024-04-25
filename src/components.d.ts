@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     WdPopup: typeof import('wot-design-uni/components/wd-popup/wd-popup.vue')['default']
     WdSwiper: typeof import('wot-design-uni/components/wd-swiper/wd-swiper.vue')['default']
     WdSwiperNav: typeof import('wot-design-uni/components/wd-swiper-nav/wd-swiper-nav.vue')['default']
+    WdToast: typeof import('wot-design-uni/components/wd-toast/wd-toast.vue')['default']
     WdTransition: typeof import('wot-design-uni/components/wd-transition/wd-transition.vue')['default']
   }
 }
