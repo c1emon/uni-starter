@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import { useNotify, useToast } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
+import { getColor, setColor } from '~/composables/theme'
 
 const toast = useToast()
 
@@ -37,6 +38,9 @@ function click(t: string) {
   else if (t === 'map') {
     router.push(`/pages/${t}`)
   }
+  else if (t === 'c') {
+    setColor('#FFB6C1')
+  }
 }
 function loadmore() {
   setTimeout(() => {
@@ -60,14 +64,14 @@ onLoad(() => {
 </script>
 
 <template>
-  <div pb-4 :theme="isDark ? 'dark' : 'light'">
+  <div pb-4>
     <wd-swiper :list="swiperList" autoplay :current="0" @click="handleClick" @change="onChange" />
   </div>
   <div>
-    <wd-grid :column="3" bg-color="rgba(0, 0, 0, 0.02)" :theme="isDark ? 'dark' : 'light'" clickable>
+    <wd-grid :column="3" clickable>
       <wd-grid-item icon="picture" text="文字0" @itemclick="() => click('map')" />
       <wd-grid-item icon="picture" text="文字1" @itemclick="() => click('n')" />
-      <wd-grid-item icon="picture" text="文字2" @itemclick="click" />
+      <wd-grid-item icon="picture" text="文字2" @itemclick="() => click('c')" />
       <wd-grid-item icon="picture" text="文字3" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字4" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字5" @itemclick="click" />

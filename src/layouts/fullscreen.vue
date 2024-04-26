@@ -4,22 +4,24 @@
 </script>
 
 <template>
-  <div
-    h-100vh class="app" :class="{
-      dark: isDark,
-    }"
-  >
-    <!-- style="--wot-navbar-height: 45px" -->
-    <div class="navbar">
+  <wd-config-provider class="app" :theme-vars="getWDTheme()">
+    <div>
       <wd-navbar
-        custom-style="background-color: #E5E7EB;" :bordered="false" placeholder :fixed="true"
-        safe-area-inset-top left-text="返回" left-arrow title="工作台" @click-left="() => router.back()"
+        :bordered="false" placeholder :fixed="true" safe-area-inset-top left-text="返回" left-arrow title="工作台"
+        @click-left="() => router.back()"
       />
     </div>
     <wd-notify />
     <wd-toast />
-    <main font-sans text="center" color="gray-700 dark:gray-200">
+    <main font-sans text="center">
       <slot />
     </main>
-  </div>
+  </wd-config-provider>
 </template>
+
+<style lang="scss" scoped>
+.app {
+  color: v-bind(getColor());
+  background-color: v-bind(getBgColor());
+}
+</style>

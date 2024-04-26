@@ -1,28 +1,38 @@
 <!-- eslint-disable no-console -->
 <script setup>
-// const statusBarHeight = `${uni.getSystemInfoSync().statusBarHeight}px`
-// console.log(`height=${statusBarHeight}`)
-// const safeHeight = ref(44)
+import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
+onLoad(() => {
+  // uni.setBackgroundColor({
+  //   backgroundColor: '#f2f0f0',
+  // })
+  uni.setTabBarStyle({
+    color: getColor(),
+    selectedColor: '#07c160',
+    backgroundColor: getBgColor(),
+    borderStyle: 'white',
+  })
+})
 </script>
 
 <template>
-  <div
-    class="app" :class="{
-      dark: isDark,
-    }"
-  >
+  <wd-config-provider class="app" :theme-vars="getWDTheme()">
     <div>
-      <wd-navbar id="navbar" custom-style="background-color: #E5E7EB;" :bordered="false" placeholder :fixed="true" safe-area-inset-top title="工作台" />
+      <wd-navbar
+        :bordered="false" placeholder :fixed="true"
+        safe-area-inset-top title="工作台"
+      />
     </div>
     <wd-notify />
     <wd-toast />
-    <main
-      p="x-4 y-4"
-      text="center"
-      font-sans
-      color="gray-700 dark:gray-200"
-    >
+    <main p="x-4 y-4" text="center" font-sans>
       <slot />
     </main>
-  </div>
+  </wd-config-provider>
 </template>
+
+<style lang="scss" scoped>
+.app {
+  color: v-bind(getColor());
+  background-color: v-bind(getBgColor());
+}
+</style>
