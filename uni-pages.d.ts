@@ -7,6 +7,7 @@ interface NavigateToOptions {
   url: "/pages/index" |
        "/pages/map" |
        "/pages/mine" |
+       "/pages/theme" |
        "/pages-sub/index";
 }
 interface RedirectToOptions extends NavigateToOptions {}

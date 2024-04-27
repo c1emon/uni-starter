@@ -7,7 +7,7 @@
   <wd-config-provider class="app" :theme-vars="getWDTheme()">
     <div>
       <wd-navbar
-        :bordered="false" placeholder :fixed="true" safe-area-inset-top left-text="返回" left-arrow title="工作台"
+        :bordered="false" placeholder :fixed="true" safe-area-inset-top left-arrow title="工作台"
         @click-left="() => router.back()"
       />
     </div>

@@ -16,11 +16,14 @@ declare global {
   const effectScope: typeof import('vue')['effectScope']
   const getBgColor: typeof import('./src/composables/theme')['getBgColor']
   const getBodyHeight: typeof import('./src/composables/theme')['getBodyHeight']
+  const getBorderColor: typeof import('./src/composables/theme')['getBorderColor']
   const getColor: typeof import('./src/composables/theme')['getColor']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getNavBarHeight: typeof import('./src/composables/theme')['getNavBarHeight']
   const getStatusBarHeight: typeof import('./src/composables/theme')['getStatusBarHeight']
+  const getSubBgColor: typeof import('./src/composables/theme')['getSubBgColor']
+  const getTabBarStyle: typeof import('./src/composables/theme')['getTabBarStyle']
   const getTheme: typeof import('./src/composables/theme')['getTheme']
   const getWDTheme: typeof import('./src/composables/theme')['getWDTheme']
   const h: typeof import('vue')['h']
@@ -31,6 +34,7 @@ declare global {
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const lightTheme: typeof import('./src/composables/theme')['lightTheme']
   const markRaw: typeof import('vue')['markRaw']
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
@@ -80,7 +84,9 @@ declare global {
   const setBgColor: typeof import('./src/composables/theme')['setBgColor']
   const setColor: typeof import('./src/composables/theme')['setColor']
   const setDark: typeof import('./src/composables/useDark')['setDark']
+  const setDarkTheme: typeof import('./src/composables/theme')['setDarkTheme']
   const setLight: typeof import('./src/composables/useDark')['setLight']
+  const setLightTheme: typeof import('./src/composables/theme')['setLightTheme']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -123,16 +129,18 @@ declare module 'vue' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly getBgColor: UnwrapRef<typeof import('./src/composables/theme')['getBgColor']>
     readonly getBodyHeight: UnwrapRef<typeof import('./src/composables/theme')['getBodyHeight']>
+    readonly getBorderColor: UnwrapRef<typeof import('./src/composables/theme')['getBorderColor']>
     readonly getColor: UnwrapRef<typeof import('./src/composables/theme')['getColor']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getNavBarHeight: UnwrapRef<typeof import('./src/composables/theme')['getNavBarHeight']>
     readonly getStatusBarHeight: UnwrapRef<typeof import('./src/composables/theme')['getStatusBarHeight']>
+    readonly getSubBgColor: UnwrapRef<typeof import('./src/composables/theme')['getSubBgColor']>
+    readonly getTabBarStyle: UnwrapRef<typeof import('./src/composables/theme')['getTabBarStyle']>
     readonly getWDTheme: UnwrapRef<typeof import('./src/composables/theme')['getWDTheme']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly initTheme: UnwrapRef<typeof import('./src/composables/theme')['initTheme']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
-    readonly isDark: UnwrapRef<typeof import('./src/composables/useDark')['isDark']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
@@ -180,13 +188,12 @@ declare module 'vue' {
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
-    readonly refreshTheme: UnwrapRef<typeof import('./src/composables/useDark')['refreshTheme']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly router: UnwrapRef<typeof import('./src/composables/useRouter')['router']>
     readonly setBgColor: UnwrapRef<typeof import('./src/composables/theme')['setBgColor']>
     readonly setColor: UnwrapRef<typeof import('./src/composables/theme')['setColor']>
-    readonly setDark: UnwrapRef<typeof import('./src/composables/useDark')['setDark']>
-    readonly setLight: UnwrapRef<typeof import('./src/composables/useDark')['setLight']>
+    readonly setDarkTheme: UnwrapRef<typeof import('./src/composables/theme')['setDarkTheme']>
+    readonly setLightTheme: UnwrapRef<typeof import('./src/composables/theme')['setLightTheme']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -194,13 +201,11 @@ declare module 'vue' {
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
-    readonly toggleDark: UnwrapRef<typeof import('./src/composables/useDark')['toggleDark']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useDark: UnwrapRef<typeof import('./src/composables/useDark')['useDark']>
     readonly useRouter: UnwrapRef<typeof import('./src/composables/useRouter')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
@@ -221,16 +226,18 @@ declare module '@vue/runtime-core' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly getBgColor: UnwrapRef<typeof import('./src/composables/theme')['getBgColor']>
     readonly getBodyHeight: UnwrapRef<typeof import('./src/composables/theme')['getBodyHeight']>
+    readonly getBorderColor: UnwrapRef<typeof import('./src/composables/theme')['getBorderColor']>
     readonly getColor: UnwrapRef<typeof import('./src/composables/theme')['getColor']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getNavBarHeight: UnwrapRef<typeof import('./src/composables/theme')['getNavBarHeight']>
     readonly getStatusBarHeight: UnwrapRef<typeof import('./src/composables/theme')['getStatusBarHeight']>
+    readonly getSubBgColor: UnwrapRef<typeof import('./src/composables/theme')['getSubBgColor']>
+    readonly getTabBarStyle: UnwrapRef<typeof import('./src/composables/theme')['getTabBarStyle']>
     readonly getWDTheme: UnwrapRef<typeof import('./src/composables/theme')['getWDTheme']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly initTheme: UnwrapRef<typeof import('./src/composables/theme')['initTheme']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
-    readonly isDark: UnwrapRef<typeof import('./src/composables/useDark')['isDark']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
@@ -278,13 +285,12 @@ declare module '@vue/runtime-core' {
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
-    readonly refreshTheme: UnwrapRef<typeof import('./src/composables/useDark')['refreshTheme']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly router: UnwrapRef<typeof import('./src/composables/useRouter')['router']>
     readonly setBgColor: UnwrapRef<typeof import('./src/composables/theme')['setBgColor']>
     readonly setColor: UnwrapRef<typeof import('./src/composables/theme')['setColor']>
-    readonly setDark: UnwrapRef<typeof import('./src/composables/useDark')['setDark']>
-    readonly setLight: UnwrapRef<typeof import('./src/composables/useDark')['setLight']>
+    readonly setDarkTheme: UnwrapRef<typeof import('./src/composables/theme')['setDarkTheme']>
+    readonly setLightTheme: UnwrapRef<typeof import('./src/composables/theme')['setLightTheme']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -292,13 +298,11 @@ declare module '@vue/runtime-core' {
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
-    readonly toggleDark: UnwrapRef<typeof import('./src/composables/useDark')['toggleDark']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useDark: UnwrapRef<typeof import('./src/composables/useDark')['useDark']>
     readonly useRouter: UnwrapRef<typeof import('./src/composables/useRouter')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>

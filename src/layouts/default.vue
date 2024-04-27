@@ -1,18 +1,18 @@
 <script setup>
-
+import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
 </script>
 
 <template>
   <wd-config-provider class="app" :theme-vars="getWDTheme()">
     <div>
       <wd-navbar
-        :bordered="false" placeholder :fixed="true" safe-area-inset-top left-text="返回" left-arrow title="工作台"
+        :bordered="false" placeholder :fixed="true" safe-area-inset-top left-arrow title="工作台"
         @click-left="() => router.back()"
       />
     </div>
     <wd-notify />
     <wd-toast />
-    <main p="x-4 y-4" font-sans text="center">
+    <main p="x-0.5 y-4" font-sans text="center">
       <slot />
     </main>
   </wd-config-provider>

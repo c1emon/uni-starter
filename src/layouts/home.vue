@@ -1,16 +1,12 @@
 <!-- eslint-disable no-console -->
 <script setup>
-import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
-onLoad(() => {
+import { getBgColor, getColor, getTabBarStyle, getWDTheme } from '~/composables/theme'
+onShow(() => {
   // uni.setBackgroundColor({
   //   backgroundColor: '#f2f0f0',
   // })
-  uni.setTabBarStyle({
-    color: getColor(),
-    selectedColor: '#07c160',
-    backgroundColor: getBgColor(),
-    borderStyle: 'white',
-  })
+
+  uni.setTabBarStyle(getTabBarStyle())
 })
 </script>
 
