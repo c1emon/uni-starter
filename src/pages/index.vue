@@ -28,11 +28,9 @@ function onChange(e: any) {
 }
 function click(t: string) {
   if (t === 'n') {
-    console.log('show toast')
     toast.show('提示信息')
     showNotify({
       message: '通知内容',
-      safeHeight: 41,
     })
   }
   else if (t === 'map') {

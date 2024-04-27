@@ -7,7 +7,7 @@ interface Theme {
   navBarHeight: number
   tabBarHeight: number
   systemTheme: string
-  windowHeight: number
+  screenHeight: number
 }
 
 const defaultTheme: Theme = {
@@ -19,7 +19,7 @@ const defaultTheme: Theme = {
   navBarHeight: 44,
   tabBarHeight: 50,
   systemTheme: 'light',
-  windowHeight: 750,
+  screenHeight: 750,
 }
 
 // light
@@ -29,7 +29,7 @@ export function initTheme() {
   const systemInfo = uni.getSystemInfoSync()
   theme.value.statusBarHeight = systemInfo.statusBarHeight ? systemInfo.statusBarHeight : 0
   theme.value.systemTheme = systemInfo.theme ? systemInfo.theme : 'light'
-  theme.value.windowHeight = systemInfo.windowHeight
+  theme.value.screenHeight = systemInfo.screenHeight
 }
 
 export function setLightTheme() {
@@ -88,7 +88,7 @@ export function getNavBarHeight() {
 }
 
 export function getBodyHeight() {
-  return theme.value.windowHeight - theme.value.statusBarHeight - theme.value.navBarHeight
+  return theme.value.screenHeight - theme.value.statusBarHeight - theme.value.navBarHeight
 }
 
 export function getWDTheme() {

@@ -1,6 +1,6 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
-
+import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
 </script>
 
 <template>
