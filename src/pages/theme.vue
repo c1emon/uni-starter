@@ -19,36 +19,47 @@ function change() {
 </script>
 
 <template>
-  <wd-radio-group v-model="themeVal" p="x-2" b-b-1.5 b-t-1.5 b-b-solid b-t-solid @change="change">
-    <wd-radio :value="0" p="b-2" b-b-1.5 b-b-solid>
-      明亮
-    </wd-radio>
-    <wd-radio :value="1" p="b-2" b-b-1.5 b-b-solid>
-      黑暗
-    </wd-radio>
-    <wd-radio :value="2" p="b-2" b-b-1.5 b-b-solid>
-      其他0
-    </wd-radio>
-    <wd-radio :value="3" p="b-2" b-b-1.5 b-b-solid>
-      其他1
-    </wd-radio>
-    <wd-radio :value="4" p="b-2" b-b-1.5 b-b-solid>
-      其他2
-    </wd-radio>
-    <wd-radio :value="5" p="b-2" b-b-1.5 b-b-solid>
-      其他3
-    </wd-radio>
-    <wd-radio :value="6" p="b-2">
-      其他4
-    </wd-radio>
-  </wd-radio-group>
+  <div class="radio-box" p="x-2" b-b-1.5 b-t-1.5 b-b-solid b-t-solid>
+    <wd-radio-group v-model="themeVal" @change="change">
+      <div class="radio-item" p="b-2" b-b-1.5 b-b-solid>
+        <wd-radio :value="0">
+          明亮
+        </wd-radio>
+      </div>
+      <div class="radio-item" p="b-2" b-b-1.5 b-b-solid>
+        <wd-radio :value="1">
+          黑暗
+        </wd-radio>
+      </div>
+      <div class="radio-item" p="b-2" b-b-1.5 b-b-solid>
+        <wd-radio :value="2">
+          其他0
+        </wd-radio>
+      </div>
+      <div class="radio-item" p="b-2" b-b-1.5 b-b-solid>
+        <wd-radio :value="3">
+          其他1
+        </wd-radio>
+      </div>
+      <div class="radio-item" p="b-2" b-b-1.5 b-b-solid>
+        <wd-radio :value="4">
+          其他2
+        </wd-radio>
+      </div>
+      <div class="radio-item" p="b-2">
+        <wd-radio :value="5">
+          其他3
+        </wd-radio>
+      </div>
+    </wd-radio-group>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.wd-radio-group,.wd-radio {
+.radio-box,.radio-item {
   border-bottom-color: v-bind(getBorderColor())
 }
-.wd-radio-group {
+.radio-box {
   border-top-color: v-bind(getBorderColor())
 }
 </style>
