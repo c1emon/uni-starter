@@ -2,13 +2,13 @@
 <script setup lang="ts">
 import { getBodyHeight } from '~/composables/theme'
 
-const latitude = 39.909
-const longitude = 116.39742
+// const latitude = 39.909
+// const longitude = 116.39742
 </script>
 
 <template>
   <div>
-    <map w-full :style="{ height: `${getBodyHeight()}px` }" :latitude="latitude" :longitude="longitude" />
+    <map w-full :style="{ height: `${getBodyHeight()}px` }" :latitude="39.909" :longitude="116.39742" />
   </div>
 </template>
 

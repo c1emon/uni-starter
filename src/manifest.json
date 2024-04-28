@@ -49,6 +49,7 @@
       "minified": true
     },
     "usingComponents": true,
+    "mergeVirtualHostAttributes": true,
     "permission": {
       "scope.userLocation": {
         "desc": "请求获取您的位置"
