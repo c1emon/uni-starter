@@ -72,6 +72,7 @@ export default defineManifestConfig({
       minified: true,
       urlCheck: false,
     },
+    mergeVirtualHostAttributes: true,
     usingComponents: true,
     // qq map sdk
     permission: {
