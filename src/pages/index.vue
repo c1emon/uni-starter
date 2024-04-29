@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import { useNotify, useToast } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
+import { getApiReq } from '~/composables/axios'
 import { getColor, setColor } from '~/composables/theme'
 
 const toast = useToast()
@@ -41,6 +42,8 @@ function click(t: string) {
     setColor('#FFB6C1')
   }
   else {
+    getApiReq().then(res => console.log(res))
+
     toast.show('nothing')
   }
 }

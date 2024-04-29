@@ -14,6 +14,7 @@ declare global {
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
   const effectScope: typeof import('vue')['effectScope']
+  const getApiReq: typeof import('./src/composables/axios')['getApiReq']
   const getBgColor: typeof import('./src/composables/theme')['getBgColor']
   const getBodyHeight: typeof import('./src/composables/theme')['getBodyHeight']
   const getBorderColor: typeof import('./src/composables/theme')['getBorderColor']
@@ -127,6 +128,7 @@ declare module 'vue' {
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly getApiReq: UnwrapRef<typeof import('./src/composables/axios')['getApiReq']>
     readonly getBgColor: UnwrapRef<typeof import('./src/composables/theme')['getBgColor']>
     readonly getBodyHeight: UnwrapRef<typeof import('./src/composables/theme')['getBodyHeight']>
     readonly getBorderColor: UnwrapRef<typeof import('./src/composables/theme')['getBorderColor']>
@@ -224,6 +226,7 @@ declare module '@vue/runtime-core' {
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly getApiReq: UnwrapRef<typeof import('./src/composables/axios')['getApiReq']>
     readonly getBgColor: UnwrapRef<typeof import('./src/composables/theme')['getBgColor']>
     readonly getBodyHeight: UnwrapRef<typeof import('./src/composables/theme')['getBodyHeight']>
     readonly getBorderColor: UnwrapRef<typeof import('./src/composables/theme')['getBorderColor']>
