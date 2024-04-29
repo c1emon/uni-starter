@@ -10,7 +10,13 @@ import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
         <wd-navbar
           :bordered="false" placeholder :fixed="true" safe-area-inset-top left-arrow title="工作台"
           @click-left="() => router.back()"
-        />
+        >
+          <template #left>
+            <div>
+              <div class="i-fluent:ios-arrow-24-filled" />
+            </div>
+          </template>
+        </wd-navbar>
       </div>
       <wd-notify />
       <wd-toast />

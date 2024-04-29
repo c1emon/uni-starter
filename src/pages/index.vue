@@ -67,9 +67,9 @@ onLoad(() => {
   </div>
   <div>
     <wd-grid :column="3" clickable>
-      <wd-grid-item icon="picture" text="文字0" @itemclick="() => click('map')" />
-      <wd-grid-item icon="picture" text="文字1" @itemclick="() => click('n')" />
-      <wd-grid-item icon="picture" text="文字2" @itemclick="() => click('c')" />
+      <wd-grid-item icon="picture" text="地图" @itemclick="() => click('map')" />
+      <wd-grid-item icon="picture" text="弹出通知" @itemclick="() => click('n')" />
+      <wd-grid-item icon="picture" text="改字色" @itemclick="() => click('c')" />
       <wd-grid-item icon="picture" text="文字3" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字4" @itemclick="click" />
       <wd-grid-item icon="picture" text="文字5" @itemclick="click" />
