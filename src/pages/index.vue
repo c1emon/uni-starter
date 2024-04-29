@@ -16,6 +16,7 @@ const swiperList = ref([
   'https://unpkg.com/wot-design-uni-assets/meng.jpg',
 ])
 
+const autoplay = ref(false)
 const state = ref<LoadMoreState>('loading')
 const num = ref<number>(0)
 const max = ref<number>(60)
@@ -27,7 +28,7 @@ function onChange(e: any) {
   console.log(e)
 }
 function click(t: string) {
-  if (t === 'n') {
+  if (t === 'notice') {
     toast.show('提示信息')
     showNotify({
       message: '通知内容',
@@ -36,8 +37,11 @@ function click(t: string) {
   else if (t === 'map') {
     router.push(`/pages/${t}`)
   }
-  else if (t === 'c') {
+  else if (t === 'color') {
     setColor('#FFB6C1')
+  }
+  else {
+    toast.show('nothing')
   }
 }
 function loadmore() {
@@ -56,6 +60,14 @@ onReachBottom(() => {
     state.value = 'finished'
 })
 
+onShow(() => {
+  autoplay.value = true
+})
+
+onHide(() => {
+  autoplay.value = false
+})
+
 onLoad(() => {
   loadmore()
 })
@@ -63,16 +75,28 @@ onLoad(() => {
 
 <template>
   <div pb-4>
-    <wd-swiper :list="swiperList" autoplay :current="0" @click="handleClick" @change="onChange" />
+    <wd-swiper :list="swiperList" :autoplay="autoplay" :current="0" @click="handleClick" @change="onChange" />
   </div>
   <div>
     <wd-grid :column="3" clickable>
-      <wd-grid-item icon="picture" text="地图" @itemclick="() => click('map')" />
-      <wd-grid-item icon="picture" text="弹出通知" @itemclick="() => click('n')" />
-      <wd-grid-item icon="picture" text="改字色" @itemclick="() => click('c')" />
-      <wd-grid-item icon="picture" text="文字3" @itemclick="click" />
-      <wd-grid-item icon="picture" text="文字4" @itemclick="click" />
-      <wd-grid-item icon="picture" text="文字5" @itemclick="click" />
+      <wd-grid-item text="地图" use-icon-slot icon-size="24px" @itemclick="() => click('map')">
+        <template #icon>
+          <div class="i-fluent:location-arrow-24-filled h-24px w-24px" />
+        </template>
+      </wd-grid-item>
+      <wd-grid-item use-icon-slot icon-size="24px" text="弹出通知" @itemclick="() => click('notice')">
+        <template #icon>
+          <div class="i-fluent:megaphone-loud-24-filled h-24px w-24px" />
+        </template>
+      </wd-grid-item>
+      <wd-grid-item use-icon-slot icon-size="24px" text="改字色" @itemclick="() => click('color')">
+        <template #icon>
+          <div class="i-fluent:paint-brush-24-filled h-24px w-24px" />
+        </template>
+      </wd-grid-item>
+      <wd-grid-item icon="picture" text="文字3" @itemclick="() => click('nothing')" />
+      <wd-grid-item icon="picture" text="文字4" @itemclick="() => click('nothing')" />
+      <wd-grid-item icon="picture" text="文字5" @itemclick="() => click('nothing')" />
     </wd-grid>
   </div>
   <div class="container">
