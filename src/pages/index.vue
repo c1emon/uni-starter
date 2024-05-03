@@ -25,8 +25,10 @@ const max = ref<number>(60)
 function handleClick(e: any) {
   console.log(e)
 }
+// eslint-disable-next-line unused-imports/no-unused-vars
 function onChange(e: any) {
-  console.log(e)
+  // console.log(e)
+
 }
 function click(t: string) {
   if (t === 'notice') {
@@ -42,9 +44,13 @@ function click(t: string) {
     setColor('#FFB6C1')
   }
   else {
-    getApiReq().then(res => console.log(res))
+    getApiReq()
+      .then(res => console.log(`getApiReq result: ${JSON.stringify(res)}`))
+      .catch((error) => { // The first request fails
+        console.log(`getApiReq catched error: ${error}`)
+      })
 
-    toast.show('nothing')
+    // toast.show('nothing')
   }
 }
 function loadmore() {

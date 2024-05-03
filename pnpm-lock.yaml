@@ -56,6 +56,9 @@ importers:
       axios:
         specifier: ^1.6.8
         version: 1.6.8
+      axios-retry:
+        specifier: ^4.1.0
+        version: 4.1.0(axios@1.6.8)
       pinia:
         specifier: '=2.0.36'
         version: 2.0.36(typescript@5.4.5)(vue@3.3.11(typescript@5.4.5))
@@ -2552,6 +2555,11 @@ packages:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
 
+  axios-retry@4.1.0:
+    resolution: {integrity: sha512-svdth4H00yhlsjBbjfLQ/sMLkXqeLxhiFC1nE1JtkN/CIssGxqk0UwTEdrVjwA2gr3yJkAulwvDSIm4z4HyPvg==}
+    peerDependencies:
+      axios: 0.x || 1.x
+
   axios@1.6.8:
     resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
 
@@ -3834,6 +3842,10 @@ packages:
   is-regex@1.1.4:
     resolution: {integrity: sha512-kvRdxDsxZjhzUX07ZnLydzS1TU/TJlTUHHY4YLL87e37oUA49DfkLqgy+VjFocowy29cKvcSiu+kIv728jTTVg==}
     engines: {node: '>= 0.4'}
+
+  is-retry-allowed@2.2.0:
+    resolution: {integrity: sha512-XVm7LOeLpTW4jV19QSH38vkswxoLud8sQ57YwJVTPWdiaI9I8keEhGFpBlslyVsgdQy4Opg8QOLb8YRgsyZiQg==}
+    engines: {node: '>=10'}
 
   is-shared-array-buffer@1.0.2:
     resolution: {integrity: sha512-sqN2UDu1/0y6uvXyStCOzyhAjCSlHceFoMKJW8W9EU9cvic/QdsZ0kEU93HEy3IUEFZIiH/3w+AH/UQbPHNdhA==}
@@ -9481,6 +9493,11 @@ snapshots:
 
   available-typed-arrays@1.0.5: {}
 
+  axios-retry@4.1.0(axios@1.6.8):
+    dependencies:
+      axios: 1.6.8
+      is-retry-allowed: 2.2.0
+
   axios@1.6.8:
     dependencies:
       follow-redirects: 1.15.6
@@ -10950,6 +10967,8 @@ snapshots:
     dependencies:
       call-bind: 1.0.5
       has-tostringtag: 1.0.0
+
+  is-retry-allowed@2.2.0: {}
 
   is-shared-array-buffer@1.0.2:
     dependencies:
