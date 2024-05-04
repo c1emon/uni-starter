@@ -5,30 +5,27 @@ import { createUniAppAxiosAdapter } from '@uni-helper/axios-adapter'
 
 const instance = axios.create({ adapter: createUniAppAxiosAdapter(), baseURL: 'http://127.0.0.1:4523/m1/3382139-796933-default/api/v1', withCredentials: false })
 
-axiosRetry(instance, { retries: 3, onRetry: (retryCount, error) => {
-  console.log(`retry ${retryCount}:  ${error} `)
-} })
+axiosRetry(instance, {
+  retries: 3,
+})
 
 instance.interceptors.request.use(
   (config) => {
-    config.headers.Authorization = 'ttkkeeoonn'
-    console.log(`request: ${JSON.stringify(config)}`)
+    config.headers.Authorization = 'clemon'
+    console.debug(`request:\n${JSON.stringify(config, null, 4)}`)
     return config
   },
   (err) => {
+    console.error(`request error: ${JSON.stringify(err, null, 4)}`)
     return Promise.reject(err)
   },
 )
 
 instance.interceptors.response.use(
   (response) => {
-    // if (!response)
-    //   return
-    console.log(`response: ${JSON.stringify(response)}`)
-    if (response?.data?.code !== 0)
-      console.log(`error: ${response?.data?.error}`)
+    console.debug(`response:\n${JSON.stringify(response, null, 4)}`)
 
-    return response?.data
+    return response.data
   },
   (error) => {
     // let message = ''
@@ -42,7 +39,7 @@ instance.interceptors.response.use(
     //       break
     //   }
     // }
-    console.log(`error: ${error}`)
+    console.error(`response error: ${JSON.stringify(error, null, 4)}`)
     return Promise.reject(error)
   },
 )
