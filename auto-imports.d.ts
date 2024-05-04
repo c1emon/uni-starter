@@ -6,6 +6,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const axios: typeof import('./src/composables/axios')['default']
   const color: typeof import('./src/composables/theme')['color']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
@@ -122,13 +123,13 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly axios: UnwrapRef<typeof import('./src/composables/axios')['default']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
-    readonly getApiReq: UnwrapRef<typeof import('./src/composables/axios')['getApiReq']>
     readonly getBgColor: UnwrapRef<typeof import('./src/composables/theme')['getBgColor']>
     readonly getBodyHeight: UnwrapRef<typeof import('./src/composables/theme')['getBodyHeight']>
     readonly getBorderColor: UnwrapRef<typeof import('./src/composables/theme')['getBorderColor']>
@@ -220,13 +221,13 @@ declare module '@vue/runtime-core' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly axios: UnwrapRef<typeof import('./src/composables/axios')['default']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
-    readonly getApiReq: UnwrapRef<typeof import('./src/composables/axios')['getApiReq']>
     readonly getBgColor: UnwrapRef<typeof import('./src/composables/theme')['getBgColor']>
     readonly getBodyHeight: UnwrapRef<typeof import('./src/composables/theme')['getBodyHeight']>
     readonly getBorderColor: UnwrapRef<typeof import('./src/composables/theme')['getBorderColor']>
