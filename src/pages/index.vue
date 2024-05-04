@@ -43,6 +43,7 @@ function click(t: string) {
   else if (t === 'color') {
     setColor('#FFB6C1')
   }
+
   else {
     getApiReq(t)
       .then(res => console.log(`getApiReq result: ${JSON.stringify(res, null, 4)}`))
