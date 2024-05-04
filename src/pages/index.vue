@@ -44,10 +44,10 @@ function click(t: string) {
     setColor('#FFB6C1')
   }
   else {
-    getApiReq()
-      .then(res => console.log(`getApiReq result: ${JSON.stringify(res)}`))
+    getApiReq(t)
+      .then(res => console.log(`getApiReq result: ${JSON.stringify(res, null, 4)}`))
       .catch((error) => { // The first request fails
-        console.log(`getApiReq catched error: ${error}`)
+        console.error(`getApiReq catched error: ${JSON.stringify(error, null, 4)}`)
       })
 
     // toast.show('nothing')
@@ -103,9 +103,9 @@ onLoad(() => {
           <div class="i-fluent:paint-brush-24-filled h-24px w-24px" />
         </template>
       </wd-grid-item>
-      <wd-grid-item icon="picture" text="文字3" @itemclick="() => click('nothing')" />
-      <wd-grid-item icon="picture" text="文字4" @itemclick="() => click('nothing')" />
-      <wd-grid-item icon="picture" text="文字5" @itemclick="() => click('nothing')" />
+      <wd-grid-item icon="picture" text="req0" @itemclick="() => click('0')" />
+      <wd-grid-item icon="picture" text="req1" @itemclick="() => click('1')" />
+      <wd-grid-item icon="picture" text="req2" @itemclick="() => click('2')" />
     </wd-grid>
   </div>
   <div class="container">

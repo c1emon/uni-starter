@@ -1,29 +1,28 @@
 /* eslint-disable no-console */
+import type { AxiosError } from 'axios'
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 import { createUniAppAxiosAdapter } from '@uni-helper/axios-adapter'
 
-const instance = axios.create({ adapter: createUniAppAxiosAdapter(), baseURL: 'http://127.0.0.1:4523/m1/3382139-796933-default/api/v1', withCredentials: false })
+const retryableAxiosInstance = axios.create({ adapter: createUniAppAxiosAdapter(), baseURL: 'http://127.0.0.1:4523/m1/3382139-796933-default/api/v1', withCredentials: false })
+retryableAxiosInstance.defaults.timeout = 3000
 
-axiosRetry(instance, {
-  retries: 3,
-})
-
-instance.interceptors.request.use(
+retryableAxiosInstance.interceptors.request.use(
   (config) => {
     config.headers.Authorization = 'clemon'
-    console.debug(`request:\n${JSON.stringify(config, null, 4)}`)
+    console.log(`request ${config.url}`)
+    console.debug(`request:\n${JSON.stringify(config, null, 2)}`)
     return config
   },
   (err) => {
-    console.error(`request error: ${JSON.stringify(err, null, 4)}`)
+    console.error(`request error: ${JSON.stringify(err, null, 2)}`)
     return Promise.reject(err)
   },
 )
 
-instance.interceptors.response.use(
+retryableAxiosInstance.interceptors.response.use(
   (response) => {
-    console.debug(`response:\n${JSON.stringify(response, null, 4)}`)
+    console.debug(`response:\n${JSON.stringify(response, null, 2)}`)
 
     return response.data
   },
@@ -39,11 +38,28 @@ instance.interceptors.response.use(
     //       break
     //   }
     // }
-    console.error(`response error: ${JSON.stringify(error, null, 4)}`)
+
+    if (error && error.config['axios-retry']?.retries && error.config['axios-retry']?.retryCount < error.config['axios-retry']?.retries)
+      // retrying...
+      return Promise.reject(error)
+
+    console.error(`response error: ${JSON.stringify(error, null, 2)}`)
+
     return Promise.reject(error)
   },
 )
 
-export function getApiReq() {
-  return instance.get('/test?t=2')
+axiosRetry(retryableAxiosInstance, {
+  retries: 2,
+  retryCondition: (err) => {
+    // console.log(`retry cond: ${JSON.stringify(err, null, 2)}`)
+    return axiosRetry.isNetworkOrIdempotentRequestError(err)
+  },
+  shouldResetTimeout: true,
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  retryDelay: (retryCount: number, error: AxiosError) => 50,
+})
+
+export function getApiReq(t: string) {
+  return retryableAxiosInstance.get(`/test?t=${t}`)
 }
