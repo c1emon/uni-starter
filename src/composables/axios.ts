@@ -60,6 +60,4 @@ axiosRetry(retryableAxiosInstance, {
   retryDelay: (retryCount: number, error: AxiosError) => 50,
 })
 
-export function getApiReq(t: string) {
-  return retryableAxiosInstance.get(`/test?t=${t}`)
-}
+export default retryableAxiosInstance

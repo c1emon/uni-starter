@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { useNotify, useToast } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
-import { getApiReq } from '~/composables/axios'
+import { getApiReq } from '~/api/v1'
 import { getColor, setColor } from '~/composables/theme'
 
 const toast = useToast()
