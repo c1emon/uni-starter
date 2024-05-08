@@ -31,6 +31,8 @@
 
 - 🧱 [Wot Design Uni](https://wot-design-uni.cn/) - 高颜值、轻量化的uni-app组件库
 
+- 🚀 [Uni Mini Router](https://moonofweisheng.github.io/uni-mini-router/) - 一个基于vue3和Typescript的轻量级uni-app路由库
+
 - 😃 [各种图标集为你所用](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
 
 - 🔥 使用 [新的 `<script setup>` 语法](https://github.com/vuejs/rfcs/pull/227)

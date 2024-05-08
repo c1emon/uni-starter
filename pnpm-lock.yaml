@@ -123,6 +123,9 @@ importers:
       '@vue/test-utils':
         specifier: ^2.4.5
         version: 2.4.5
+      add:
+        specifier: ^2.0.6
+        version: 2.0.6
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -138,6 +141,12 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
+      uni-mini-router:
+        specifier: ^0.1.6
+        version: 0.1.6
+      uni-parse-pages:
+        specifier: ^0.0.1
+        version: 0.0.1
       unocss:
         specifier: '=0.58.9'
         version: 0.58.9(postcss@8.4.38)(rollup@4.17.2)(vite@5.2.8(@types/node@20.3.1)(sass@1.75.0)(terser@5.17.4))
@@ -2395,6 +2404,9 @@ packages:
     resolution: {integrity: sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  add@2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
 
   address@1.2.2:
     resolution: {integrity: sha512-4B/qKCfeE/ODUaAUpSwfzazo5x29WD4r3vXiWsB7I2mSDAihwEqKO+g8GELZUQSSAo5e1XTYh3ZVfLyxBc12nA==}
@@ -5320,6 +5332,12 @@ packages:
 
   unconfig@0.3.13:
     resolution: {integrity: sha512-N9Ph5NC4+sqtcOjPfHrRcHekBCadCXWTBzp2VYYbySOHW0PfD9XLCeXshTXjkPYwLrBr9AtSeU0CZmkYECJhng==}
+
+  uni-mini-router@0.1.6:
+    resolution: {integrity: sha512-dgeEYCv00yTkiX3gVAQXrx4IAzAVtZv+2lVtVaixH6J/IHfZP7R3wqUwBvy4eFD0vP20p+QWNNE2c5LuHbPSiQ==}
+
+  uni-parse-pages@0.0.1:
+    resolution: {integrity: sha512-OyuNFo/nCw7mnZnrtTYi/C12uWxmK7FczrxRATZETCh7j23uk1kOxEWVD4BXRSjif7YJg0ZPYQE4xBWqxUMHAw==}
 
   unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
@@ -9283,6 +9301,8 @@ snapshots:
 
   acorn@8.11.3: {}
 
+  add@2.0.6: {}
+
   address@1.2.2: {}
 
   agent-base@6.0.2:
@@ -12605,6 +12625,10 @@ snapshots:
       '@antfu/utils': 0.7.7
       defu: 6.1.4
       jiti: 1.21.0
+
+  uni-mini-router@0.1.6: {}
+
+  uni-parse-pages@0.0.1: {}
 
   unicode-canonical-property-names-ecmascript@2.0.0: {}
 

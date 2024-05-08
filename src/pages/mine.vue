@@ -1,5 +1,7 @@
 <!-- eslint-disable no-console -->
 <script setup>
+const router = useRouter()
+
 function themeSettingClk() {
   router.push(`/pages/theme`)
 }

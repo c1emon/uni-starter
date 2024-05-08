@@ -1,5 +1,10 @@
 <script setup>
+// import { useRoute, useRouter } from 'uni-mini-router'
 import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
+
+const router = useRouter()
+
+// const pageInfo = ''
 </script>
 
 <template>

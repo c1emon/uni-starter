@@ -5,6 +5,8 @@ import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
 import { getApiReq } from '~/api/v1'
 import { getColor, setColor } from '~/composables/theme'
 
+const router = useRouter()
+
 const toast = useToast()
 
 const { showNotify } = useNotify()
