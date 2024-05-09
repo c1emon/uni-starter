@@ -52,7 +52,9 @@ function change() {
 
 <route lang="yaml">
 layout: default
-# style:
+name: theme
+style:
+  navigationBarTitleText: 主题设置
 #   disableScroll: true
 #   app-plus:
 #     bounce: "none"

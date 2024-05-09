@@ -83,6 +83,7 @@ declare global {
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const showInfo: typeof import('./src/composables/usePageInfo')['showInfo']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
@@ -92,6 +93,7 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const usePageInfo: typeof import('./src/composables/pageInfo')['usePageInfo']
   const useRoute: typeof import('uni-mini-router')['useRoute']
   const useRouter: typeof import('uni-mini-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
@@ -197,6 +199,7 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly usePageInfo: UnwrapRef<typeof import('./src/composables/pageInfo')['usePageInfo']>
     readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
@@ -295,6 +298,7 @@ declare module '@vue/runtime-core' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly usePageInfo: UnwrapRef<typeof import('./src/composables/pageInfo')['usePageInfo']>
     readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>

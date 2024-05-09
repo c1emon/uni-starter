@@ -8,3 +8,11 @@
     </p>
   </div>
 </template>
+
+<route lang="yaml">
+layout: subpg
+name: subpg
+needAuth: false
+style:
+  navigationBarTitleText: 'subpg'
+</route>

@@ -1,13 +1,9 @@
 <!-- eslint-disable no-console -->
 <script setup>
 import { getBgColor, getColor, getTabBarStyle, getWDTheme } from '~/composables/theme'
-onShow(() => {
-  // uni.setBackgroundColor({
-  //   backgroundColor: '#f2f0f0',
-  // })
+import { usePageInfo } from '~/composables/pageInfo'
 
-  uni.setTabBarStyle(getTabBarStyle())
-})
+const { getNavTitle } = usePageInfo()
 </script>
 
 <template>
@@ -16,7 +12,7 @@ onShow(() => {
       <div>
         <wd-navbar
           :bordered="false" placeholder :fixed="true"
-          safe-area-inset-top title="工作台"
+          safe-area-inset-top :title="getNavTitle()"
         />
       </div>
       <wd-notify />
