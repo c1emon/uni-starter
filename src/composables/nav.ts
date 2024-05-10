@@ -23,7 +23,6 @@ export function useNavCtrl() {
 
 export function useNavTitle(): Ref<string> {
   const curPath = ref<string>('')
-
   const navTitle = ref<string>('')
 
   onShow(() => {
