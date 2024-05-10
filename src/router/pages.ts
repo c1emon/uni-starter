@@ -4,7 +4,7 @@ interface pageInfo {
   path: string
   name?: string
   needAuth: boolean
-  navBarTitle?: string
+  navBarTitle: string
   isSubPage: boolean
 }
 
@@ -41,7 +41,7 @@ function pageJson2Info(pj: pageJson, root?: string): pageInfo {
     path: `${root}/${trim(pj.path, '/')}`,
     name: pj.name,
     needAuth: !!pj.needAuth,
-    navBarTitle: pj.style?.navigationBarTitleText,
+    navBarTitle: pj.style?.navigationBarTitleText || '',
     isSubPage: !!root,
   }
 }

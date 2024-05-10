@@ -1,9 +1,10 @@
 <!-- eslint-disable no-console -->
 <script setup>
 import { getBgColor, getColor, getTabBarStyle, getWDTheme } from '~/composables/theme'
-import { usePageInfo } from '~/composables/pageInfo'
 
-const { getNavTitle } = usePageInfo()
+import { useNav } from '~/composables/nav'
+
+const { navTitle } = useNav()
 </script>
 
 <template>
@@ -12,7 +13,7 @@ const { getNavTitle } = usePageInfo()
       <div>
         <wd-navbar
           :bordered="false" placeholder :fixed="true"
-          safe-area-inset-top :title="getNavTitle()"
+          safe-area-inset-top :title="navTitle"
         />
       </div>
       <wd-notify />

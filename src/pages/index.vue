@@ -2,12 +2,11 @@
 <script setup lang="ts">
 import { useNotify, useToast } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
-import { usePageInfo } from '~/composables/pageInfo'
 import { getApiReq } from '~/api/v1'
 import { getColor, setColor } from '~/composables/theme'
 
 const router = useRouter()
-const { setNavTitle } = usePageInfo()
+// const { setNavTitle } = usePageInfo()
 
 const toast = useToast()
 
@@ -36,14 +35,16 @@ function onChange(e: any) {
 }
 function click(t: string) {
   if (t === 'notice') {
-    setNavTitle('hello')
     toast.show('提示信息')
     showNotify({
       message: '通知内容',
     })
   }
   else if (t === 'map') {
-    router.push(`/pages/${t}`)
+    router.push({
+      path: '/pages/map',
+      animationType: 'pop-in',
+    })
   }
   else if (t === 'color') {
     setColor('#FFB6C1')

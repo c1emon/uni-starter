@@ -93,7 +93,9 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
-  const usePageInfo: typeof import('./src/composables/pageInfo')['usePageInfo']
+  const useNav: typeof import('./src/composables/nav')['useNav']
+  const useNavCtrl: typeof import('./src/composables/nav')['useNavCtrl']
+  const usePageInfo: typeof import('./src/composables/nav')['usePageInfo']
   const useRoute: typeof import('uni-mini-router')['useRoute']
   const useRouter: typeof import('uni-mini-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
@@ -199,7 +201,8 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly usePageInfo: UnwrapRef<typeof import('./src/composables/pageInfo')['usePageInfo']>
+    readonly useNav: UnwrapRef<typeof import('./src/composables/nav')['useNav']>
+    readonly useNavCtrl: UnwrapRef<typeof import('./src/composables/nav')['useNavCtrl']>
     readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
@@ -298,7 +301,8 @@ declare module '@vue/runtime-core' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly usePageInfo: UnwrapRef<typeof import('./src/composables/pageInfo')['usePageInfo']>
+    readonly useNav: UnwrapRef<typeof import('./src/composables/nav')['useNav']>
+    readonly useNavCtrl: UnwrapRef<typeof import('./src/composables/nav')['useNavCtrl']>
     readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>

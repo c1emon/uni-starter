@@ -1,7 +1,11 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { getBorderColor, setDarkTheme, setLightTheme } from '~/composables/theme'
+import { useNavCtrl } from '~/composables/nav'
 
+const { setNavTitle, resetNavTitle } = useNavCtrl()
+
+const router = useRouter()
 const themeVal = ref<number>(0)
 
 function change() {
@@ -11,6 +15,15 @@ function change() {
       break
     case 1 :
       setDarkTheme()
+      break
+    case 2:
+      router.push('/pages-sub/index')
+      break
+    case 3:
+      setNavTitle('sss')
+      break
+    case 4:
+      resetNavTitle()
       break
     default :
       console.log(`bad theme val: ${themeVal.value}`)
@@ -27,16 +40,16 @@ function change() {
       黑暗
     </wd-radio>
     <wd-radio :value="2" p="b-2" b-b-1.5 b-b-solid>
-      其他0
+      跳转下一页
     </wd-radio>
     <wd-radio :value="3" p="b-2" b-b-1.5 b-b-solid>
-      其他1
+      设置NavTitle
     </wd-radio>
     <wd-radio :value="4" p="b-2" b-b-1.5 b-b-solid>
-      其他2
+      重置NavTitle
     </wd-radio>
     <wd-radio :value="5" p="b-2">
-      其他3
+      nothing!
     </wd-radio>
   </wd-radio-group>
 </template>

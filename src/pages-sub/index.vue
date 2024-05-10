@@ -10,7 +10,7 @@
 </template>
 
 <route lang="yaml">
-layout: subpg
+layout: default
 name: subpg
 needAuth: false
 style:
