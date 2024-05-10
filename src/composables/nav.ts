@@ -21,7 +21,7 @@ export function useNavCtrl() {
   return { setNavTitle, resetNavTitle }
 }
 
-export function useNav() {
+export function useNavTitle(): Ref<string> {
   const curPath = ref<string>('')
 
   const navTitle = ref<string>('')
@@ -40,5 +40,5 @@ export function useNav() {
     }).at(0)?.navBarTitle || ''
   }, { immediate: true, deep: true })
 
-  return { navTitle }
+  return navTitle
 }

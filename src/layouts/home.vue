@@ -1,10 +1,5 @@
-<!-- eslint-disable no-console -->
 <script setup>
 import { getBgColor, getColor, getTabBarStyle, getWDTheme } from '~/composables/theme'
-
-import { useNav } from '~/composables/nav'
-
-const { navTitle } = useNav()
 </script>
 
 <template>
@@ -12,8 +7,8 @@ const { navTitle } = useNav()
     <wd-config-provider :theme-vars="getWDTheme()">
       <div>
         <wd-navbar
-          :bordered="false" placeholder :fixed="true"
-          safe-area-inset-top :title="navTitle"
+          :bordered="false" :fixed="true"
+          safe-area-inset-top placeholder :title="navTitle"
         />
       </div>
       <wd-notify />

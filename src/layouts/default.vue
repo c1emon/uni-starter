@@ -1,9 +1,7 @@
 <script setup>
 import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
-import { useNav } from '~/composables/nav'
 
-const { navTitle } = useNav()
-
+const navTitle = useNavTitle()
 const router = useRouter()
 </script>
 

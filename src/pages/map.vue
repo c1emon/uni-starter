@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { getBodyHeight } from '~/composables/theme'
 

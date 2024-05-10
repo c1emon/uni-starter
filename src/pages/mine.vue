@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup>
 const router = useRouter()
 
