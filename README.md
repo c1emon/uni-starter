@@ -138,6 +138,8 @@ pnpm i # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ### 备注
 - 使用自定义NavBar替代原生导航栏，`navbarHeight=44px`
 - 增加home以及default布局
+- 保留`style.navigationBarTitleText: xxx`方式设置默认页面导航栏标题
+- 支持`const { setNavTitle, resetNavTitle } = useNavCtrl()`手动设置当前页面导航栏标题
 - Axios拦截器需在应用axiosRetry前添加
 - 暴露全局主题设置
 - 地图组件自适应页面高度
