@@ -1,21 +1,26 @@
 import { useRoute } from 'uni-mini-router'
-import type { Route } from 'uni-mini-router'
 import { getPageInfos } from '~/router/pages'
 
-const navTitles = ref<Record<string, string | undefined>>({})
+interface titleRecords extends Record<string, string | undefined> {}
+
+const navTitles = ref<titleRecords>({})
 
 export function useNavCtrl() {
-  const curRoute = ref<Route>({})
+  const curPath = ref<string>('')
 
-  onLoad(() => {
-    curRoute.value = useRoute()
+  onReady(() => {
+    curPath.value = useRoute().path || ''
   })
 
   function setNavTitle(title: string) {
-    navTitles.value[curRoute.value.path!] = title
+    if (curPath.value.length <= 0)
+      return
+    navTitles.value[curPath.value] = title
   }
   function resetNavTitle() {
-    navTitles.value[curRoute.value.path!] = undefined
+    if (!curPath.value || curPath.value.length <= 0)
+      return
+    navTitles.value[curPath.value] = undefined
   }
 
   return { setNavTitle, resetNavTitle }
@@ -25,19 +30,23 @@ export function useNavTitle(): Ref<string> {
   const curPath = ref<string>('')
   const navTitle = ref<string>('')
 
+  function resolveNavTitle(titles: titleRecords, curPath: string): string {
+    if (curPath.length > 0 && titles[curPath])
+      return navTitles.value[curPath]!
+    return getPageInfos().filter((pageInfo) => {
+      return pageInfo.path === curPath
+    }).at(0)?.navBarTitle || ''
+  }
+
   onShow(() => {
     const route = useRoute()
-    curPath.value = route.path!
-    navTitle.value = navTitles.value[route.path!] || getPageInfos().filter((pageInfo) => {
-      return pageInfo.path === route.path
-    }).at(0)?.navBarTitle || ''
+    curPath.value = route.path || ''
+    navTitle.value = resolveNavTitle(navTitles.value, curPath.value)
   })
 
   watch(navTitles, (titles) => {
-    navTitle.value = titles[curPath.value] || getPageInfos().filter((pageInfo) => {
-      return pageInfo.path === curPath.value
-    }).at(0)?.navBarTitle || ''
-  }, { immediate: true, deep: true })
+    navTitle.value = resolveNavTitle(titles, curPath.value)
+  }, { deep: true })
 
   return navTitle
 }

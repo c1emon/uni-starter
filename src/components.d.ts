@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     TheInput: typeof import('./components/TheInput.vue')['default']
     TheLogo: typeof import('./components/TheLogo.vue')['default']
     WdBadge: typeof import('wot-design-uni/components/wd-badge/wd-badge.vue')['default']
+    WdButton: typeof import('wot-design-uni/components/wd-button/wd-button.vue')['default']
     WdCell: typeof import('wot-design-uni/components/wd-cell/wd-cell.vue')['default']
     WdConfigProvider: typeof import('wot-design-uni/components/wd-config-provider/wd-config-provider.vue')['default']
     WdDivider: typeof import('wot-design-uni/components/wd-divider/wd-divider.vue')['default']

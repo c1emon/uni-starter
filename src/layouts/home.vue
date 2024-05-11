@@ -8,7 +8,7 @@ import { getBgColor, getColor, getTabBarStyle, getWDTheme } from '~/composables/
       <div>
         <wd-navbar
           :bordered="false" :fixed="true"
-          safe-area-inset-top placeholder :title="navTitle"
+          safe-area-inset-top placeholder
         />
       </div>
       <wd-notify />
