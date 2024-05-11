@@ -76,7 +76,6 @@ declare global {
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
   const resolveComponent: typeof import('vue')['resolveComponent']
-  const router: typeof import('./src/composables/useRouter')['router']
   const setBgColor: typeof import('./src/composables/theme')['setBgColor']
   const setColor: typeof import('./src/composables/theme')['setColor']
   const setDarkTheme: typeof import('./src/composables/theme')['setDarkTheme']
@@ -93,7 +92,10 @@ declare global {
   const useAttrs: typeof import('vue')['useAttrs']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
-  const useRouter: typeof import('./src/composables/useRouter')['useRouter']
+  const useNavCtrl: typeof import('./src/composables/nav')['useNavCtrl']
+  const useNavTitle: typeof import('./src/composables/nav')['useNavTitle']
+  const useRoute: typeof import('uni-mini-router')['useRoute']
+  const useRouter: typeof import('uni-mini-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
@@ -181,7 +183,6 @@ declare module 'vue' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
-    readonly router: UnwrapRef<typeof import('./src/composables/useRouter')['router']>
     readonly setBgColor: UnwrapRef<typeof import('./src/composables/theme')['setBgColor']>
     readonly setColor: UnwrapRef<typeof import('./src/composables/theme')['setColor']>
     readonly setDarkTheme: UnwrapRef<typeof import('./src/composables/theme')['setDarkTheme']>
@@ -198,7 +199,10 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useRouter: UnwrapRef<typeof import('./src/composables/useRouter')['useRouter']>
+    readonly useNavCtrl: UnwrapRef<typeof import('./src/composables/nav')['useNavCtrl']>
+    readonly useNavTitle: UnwrapRef<typeof import('./src/composables/nav')['useNavTitle']>
+    readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
+    readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
@@ -279,7 +283,6 @@ declare module '@vue/runtime-core' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
-    readonly router: UnwrapRef<typeof import('./src/composables/useRouter')['router']>
     readonly setBgColor: UnwrapRef<typeof import('./src/composables/theme')['setBgColor']>
     readonly setColor: UnwrapRef<typeof import('./src/composables/theme')['setColor']>
     readonly setDarkTheme: UnwrapRef<typeof import('./src/composables/theme')['setDarkTheme']>
@@ -296,7 +299,10 @@ declare module '@vue/runtime-core' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
-    readonly useRouter: UnwrapRef<typeof import('./src/composables/useRouter')['useRouter']>
+    readonly useNavCtrl: UnwrapRef<typeof import('./src/composables/nav')['useNavCtrl']>
+    readonly useNavTitle: UnwrapRef<typeof import('./src/composables/nav')['useNavTitle']>
+    readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
+    readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>

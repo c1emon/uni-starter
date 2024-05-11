@@ -1,13 +1,5 @@
-<!-- eslint-disable no-console -->
 <script setup>
 import { getBgColor, getColor, getTabBarStyle, getWDTheme } from '~/composables/theme'
-onShow(() => {
-  // uni.setBackgroundColor({
-  //   backgroundColor: '#f2f0f0',
-  // })
-
-  uni.setTabBarStyle(getTabBarStyle())
-})
 </script>
 
 <template>
@@ -15,8 +7,8 @@ onShow(() => {
     <wd-config-provider :theme-vars="getWDTheme()">
       <div>
         <wd-navbar
-          :bordered="false" placeholder :fixed="true"
-          safe-area-inset-top title="工作台"
+          :bordered="false" :fixed="true"
+          safe-area-inset-top placeholder
         />
       </div>
       <wd-notify />

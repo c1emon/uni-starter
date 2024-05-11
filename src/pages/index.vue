@@ -5,6 +5,9 @@ import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
 import { getApiReq } from '~/api/v1'
 import { getColor, setColor } from '~/composables/theme'
 
+const router = useRouter()
+// const { setNavTitle } = usePageInfo()
+
 const toast = useToast()
 
 const { showNotify } = useNotify()
@@ -38,7 +41,10 @@ function click(t: string) {
     })
   }
   else if (t === 'map') {
-    router.push(`/pages/${t}`)
+    router.push({
+      path: '/pages/map',
+      animationType: 'pop-in',
+    })
   }
   else if (t === 'color') {
     setColor('#FFB6C1')
@@ -122,7 +128,7 @@ onLoad(() => {
 
 <route lang="yaml">
 layout: home
-# style:
+name: index
 #   disableScroll: true
 #   app-plus:
 #     bounce: "none"

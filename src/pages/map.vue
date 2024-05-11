@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { getBodyHeight } from '~/composables/theme'
 
@@ -14,7 +13,9 @@ import { getBodyHeight } from '~/composables/theme'
 
 <route lang="yaml">
 layout: fullscreen
+needAuth: true
 style:
+  navigationBarTitleText: 地图
   disableScroll: true
   app-plus:
     bounce: "none"

@@ -1,5 +1,8 @@
 <script setup>
 import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
+
+const navTitle = useNavTitle()
+const router = useRouter()
 </script>
 
 <template>
@@ -7,7 +10,7 @@ import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
     <wd-config-provider :theme-vars="getWDTheme()">
       <div>
         <wd-navbar
-          :bordered="false" :fixed="true" safe-area-inset-top left-arrow placeholder title="工作台"
+          :bordered="false" :fixed="true" safe-area-inset-top left-arrow placeholder :title="navTitle"
           @click-left="() => router.back()"
         >
           <template #left>

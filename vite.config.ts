@@ -54,6 +54,12 @@ export default defineConfig({
       imports: [
         'vue',
         'uni-app',
+        {
+          'uni-mini-router': [
+            'useRouter',
+            'useRoute',
+          ],
+        },
       ],
       dts: true,
       dirs: [
