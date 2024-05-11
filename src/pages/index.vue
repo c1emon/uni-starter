@@ -3,7 +3,6 @@
 import { useNotify, useToast } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
 import { getApiReq } from '~/api/v1'
-import { getColor, setColor } from '~/composables/theme'
 
 const router = useRouter()
 // const { setNavTitle } = usePageInfo()
@@ -47,7 +46,7 @@ function click(t: string) {
     })
   }
   else if (t === 'color') {
-    setColor('#FFB6C1')
+    toast.show('set color')
   }
 
   else {

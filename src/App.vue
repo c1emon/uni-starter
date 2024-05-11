@@ -1,12 +1,13 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { setNotifyDefaultOptions } from 'wot-design-uni'
-import { getStatusBarHeight, initTheme } from './composables/theme'
+import { useTheme } from './composables/theme'
+
+const { statusBarHeight, navBarHeight } = useTheme()
 
 onLaunch(() => {
-  initTheme()
   setNotifyDefaultOptions({
-    safeHeight: getStatusBarHeight() + getNavBarHeight(),
+    safeHeight: statusBarHeight + navBarHeight,
     onClick: event => console.log('onClick', event),
     onClosed: () => console.log('onClosed'),
     onOpened: () => console.log('onOpened'),
