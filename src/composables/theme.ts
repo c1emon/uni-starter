@@ -67,7 +67,7 @@ export function useTheme() {
     themeRef.value = themes[themeName]
   }
 
-  function applyBackgroundColor() {
+  function applyBgColor() {
     // #ifdef MP-WEIXIN || MP-BAIDU || MP-QQ || MP-KUAISHOU || MP-JD
     uni.setBackgroundColor({
       backgroundColor: themeRef.value.background,
@@ -77,8 +77,12 @@ export function useTheme() {
     // #endif
   }
 
+  function addTheme(name: string, newTheme: theme) {
+    themes[name] = newTheme
+  }
+
   onShow(() => {
-    applyBackgroundColor()
+    applyBgColor()
   })
 
   const bgColor = computed(() => themeRef.value.background)
@@ -115,7 +119,7 @@ export function useTheme() {
     }
   })
 
-  return { applyBackgroundColor, applyTheme, wotVars, bodyHeight, bgColor, color, borderColor, statusBarHeight, navBarHeight, safeHeight }
+  return { applyBgColor, applyTheme, addTheme, wotVars, bodyHeight, bgColor, color, borderColor, statusBarHeight, navBarHeight, safeHeight }
 }
 
 export function useTabBarTheme() {
