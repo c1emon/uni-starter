@@ -3,9 +3,7 @@
 import { useNotify, useToast } from 'wot-design-uni'
 import type { LoadMoreState } from 'wot-design-uni/components/wd-loadmore/types'
 import { getApiReq } from '~/api/v1'
-import { useTheme } from '~/composables/theme'
 
-const { applyTabBarStyle, applyBackgroundColor } = useTheme()
 const router = useRouter()
 // const { setNavTitle } = usePageInfo()
 const toast = useToast()
@@ -39,7 +37,6 @@ function click(t: string) {
     showNotify({
       message: '通知内容',
     })
-    applyBackgroundColor()
   }
   else if (t === 'map') {
     router.push({
@@ -48,7 +45,7 @@ function click(t: string) {
     })
   }
   else if (t === 'color') {
-    applyTabBarStyle()
+    toast.show('set color')
   }
 
   else {
