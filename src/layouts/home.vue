@@ -1,6 +1,7 @@
 <script setup>
-import { useTheme } from '~/composables/theme'
+import { useTabBarTheme, useTheme } from '~/composables/theme'
 
+useTabBarTheme()
 const { wotVars, bgColor, color } = useTheme()
 </script>
 

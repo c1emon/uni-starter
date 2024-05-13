@@ -83,6 +83,7 @@ declare global {
   const useRoute: typeof import('uni-mini-router')['useRoute']
   const useRouter: typeof import('uni-mini-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
+  const useTabBarTheme: typeof import('./src/composables/theme')['useTabBarTheme']
   const useTheme: typeof import('./src/composables/theme')['useTheme']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
@@ -177,6 +178,7 @@ declare module 'vue' {
     readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
+    readonly useTabBarTheme: UnwrapRef<typeof import('./src/composables/theme')['useTabBarTheme']>
     readonly useTheme: UnwrapRef<typeof import('./src/composables/theme')['useTheme']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
@@ -264,6 +266,7 @@ declare module '@vue/runtime-core' {
     readonly useRoute: UnwrapRef<typeof import('uni-mini-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('uni-mini-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
+    readonly useTabBarTheme: UnwrapRef<typeof import('./src/composables/theme')['useTabBarTheme']>
     readonly useTheme: UnwrapRef<typeof import('./src/composables/theme')['useTheme']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>

@@ -1,3 +1,8 @@
+import { useRoute } from 'uni-mini-router'
+import { getPageInfos } from '~/router/pages'
+import tabBarHomeLogo from '~/static/tabBarHome.png'
+import tabBarMineLogo from '~/static/tabBarBaggage.png'
+
 interface theme {
   background: string
   color: string
@@ -42,6 +47,18 @@ function initTheme() {
   sysInfoRef.value.statusBarHeight = systemInfo.statusBarHeight ? systemInfo.statusBarHeight : 0
   sysInfoRef.value.systemTheme = systemInfo.theme ? systemInfo.theme : 'light'
   sysInfoRef.value.screenHeight = systemInfo.screenHeight
+
+  uni.setTabBarItem({
+    index: 0,
+    iconPath: tabBarHomeLogo,
+    selectedIconPath: tabBarHomeLogo,
+  })
+
+  uni.setTabBarItem({
+    index: 1,
+    iconPath: tabBarMineLogo,
+    selectedIconPath: tabBarMineLogo,
+  })
 }
 initTheme()
 
@@ -60,14 +77,9 @@ export function useTheme() {
     // #endif
   }
 
-  function applyTabBarStyle() {
-    uni.setTabBarStyle({
-      color: themeRef.value.color,
-      selectedColor: '#00FF00',
-      backgroundColor: themeRef.value.background,
-      borderStyle: 'white',
-    })
-  }
+  onShow(() => {
+    applyBackgroundColor()
+  })
 
   const bgColor = computed(() => themeRef.value.background)
   const color = computed(() => themeRef.value.color)
@@ -78,6 +90,8 @@ export function useTheme() {
   const bodyHeight = computed(() => {
     return `${sysInfoRef.value.screenHeight - sysInfoRef.value.statusBarHeight - sysInfoRef.value.navBarHeight}px`
   })
+
+  const safeHeight = computed(() => sysInfoRef.value.statusBarHeight + sysInfoRef.value.navBarHeight)
 
   const wotVars = computed(() => {
     return {
@@ -101,5 +115,24 @@ export function useTheme() {
     }
   })
 
-  return { applyBackgroundColor, applyTabBarStyle, applyTheme, wotVars, bodyHeight, bgColor, color, borderColor, statusBarHeight, navBarHeight }
+  return { applyBackgroundColor, applyTheme, wotVars, bodyHeight, bgColor, color, borderColor, statusBarHeight, navBarHeight, safeHeight }
+}
+
+export function useTabBarTheme() {
+  const curPath = ref<string>('')
+
+  function applyTabBarStyle() {
+    uni.setTabBarStyle({
+      color: themeRef.value.color,
+      selectedColor: '#07c160',
+      backgroundColor: themeRef.value.background,
+      borderStyle: 'white',
+    })
+  }
+
+  onShow(() => {
+    curPath.value = useRoute().path || ''
+    if (getPageInfos().filter(info => info.hasTabBar).find(info => info.path === curPath.value))
+      applyTabBarStyle()
+  })
 }

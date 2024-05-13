@@ -3,11 +3,11 @@
 import { setNotifyDefaultOptions } from 'wot-design-uni'
 import { useTheme } from './composables/theme'
 
-const { statusBarHeight, navBarHeight } = useTheme()
+const { safeHeight } = useTheme()
 
 onLaunch(() => {
   setNotifyDefaultOptions({
-    safeHeight: statusBarHeight + navBarHeight,
+    safeHeight: safeHeight.value,
     onClick: event => console.log('onClick', event),
     onClosed: () => console.log('onClosed'),
     onOpened: () => console.log('onOpened'),
