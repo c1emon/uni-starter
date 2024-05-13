@@ -1,14 +1,10 @@
 <script setup>
 const router = useRouter()
-
-function themeSettingClk() {
-  router.push(`/pages/theme`)
-}
 </script>
 
 <template>
   <div>
-    <wd-cell title="主题设置" clickable is-link custom-title-class="cell-title" @click="themeSettingClk" />
+    <wd-cell title="主题设置" clickable is-link custom-title-class="cell-title" @click="() => router.push(`/pages/theme`)" />
   </div>
 </template>
 

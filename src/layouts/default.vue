@@ -1,13 +1,14 @@
 <script setup>
-import { getBgColor, getColor, getWDTheme } from '~/composables/theme'
+import { useTheme } from '~/composables/theme'
 
 const navTitle = useNavTitle()
 const router = useRouter()
+const { wotVars, bgColor, color } = useTheme()
 </script>
 
 <template>
   <div class="app">
-    <wd-config-provider :theme-vars="getWDTheme()">
+    <wd-config-provider :theme-vars="wotVars">
       <div>
         <wd-navbar
           :bordered="false" :fixed="true" safe-area-inset-top left-arrow placeholder :title="navTitle"
@@ -30,7 +31,7 @@ const router = useRouter()
 
 <style lang="scss" scoped>
 .app {
-  color: v-bind(getColor());
-  background-color: v-bind(getBgColor());
+  color: v-bind(color);
+  background-color: v-bind(bgColor);
 }
 </style>

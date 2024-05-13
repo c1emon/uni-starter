@@ -6,6 +6,7 @@ interface pageInfo {
   needAuth: boolean
   navBarTitle: string
   isSubPage: boolean
+  hasTabBar: boolean
 }
 
 interface pageJson {
@@ -17,6 +18,16 @@ interface pageJson {
   style?: {
     navigationBarTitleText?: string
   }
+}
+
+interface tabBars {
+  text: string
+  pagePath: string
+}
+
+// eslint-disable-next-line unused-imports/no-unused-vars
+interface tabBarJson {
+  list?: tabBars[]
 }
 
 interface subPageJson {
@@ -43,6 +54,7 @@ function pageJson2Info(pj: pageJson, root?: string): pageInfo {
     needAuth: !!pj.needAuth,
     navBarTitle: pj.style?.navigationBarTitleText || '',
     isSubPage: !!root,
+    hasTabBar: false,
   }
 }
 
@@ -56,6 +68,15 @@ function build(): pageInfo[] {
     subPage.pages.forEach((page: pageJson) => {
       infos.push(pageJson2Info(page, subPage.root))
     })
+  })
+
+  const tabBarPages = pagesJson.tabBar?.list?.map((item: tabBars) => {
+    return `/${item.pagePath}`
+  })
+
+  infos.forEach((info) => {
+    if (tabBarPages.find(page => page === info.path))
+      info.hasTabBar = true
   })
 
   return infos

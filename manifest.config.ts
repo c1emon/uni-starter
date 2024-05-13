@@ -1,7 +1,7 @@
 import { defineManifestConfig } from '@uni-helper/vite-plugin-uni-manifest'
 
 export default defineManifestConfig({
-  'name': 'uni-vitesse',
+  'name': 'uni-starter',
   'appid': '',
   'description': 'uniapp + vitesse = strong !!!',
   'versionName': '1.0.0',

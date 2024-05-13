@@ -1,8 +1,9 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
-import { getBorderColor, setDarkTheme, setLightTheme } from '~/composables/theme'
+import { useTheme } from '~/composables/theme'
 import { useNavCtrl } from '~/composables/nav'
 
+const { applyTheme, borderColor } = useTheme()
 const { setNavTitle, resetNavTitle } = useNavCtrl()
 
 const router = useRouter()
@@ -11,10 +12,10 @@ const themeVal = ref<number>(0)
 function change() {
   switch (themeVal.value) {
     case 0 :
-      setLightTheme()
+      applyTheme('light')
       break
     case 1 :
-      setDarkTheme()
+      applyTheme('dark')
       break
     case 2:
       router.push('/pages-sub/index')
@@ -56,10 +57,10 @@ function change() {
 
 <style lang="scss" scoped>
 .wd-radio-group,.wd-radio {
-  border-bottom-color: v-bind(getBorderColor())
+  border-bottom-color: v-bind(borderColor)
 }
 .wd-radio-group {
-  border-top-color: v-bind(getBorderColor())
+  border-top-color: v-bind(borderColor)
 }
 </style>
 
